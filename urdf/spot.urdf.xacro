@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<robot
+    xmlns:xacro="http://www.ros.org/wiki/xacro" name="spot" >
+
+  <!-- spot -->
+  <xacro:include filename="$(find spot_description)/urdf/spot.urdf.xacro" />
+  <!-- attachment -->
+  <link name="grapple_attachment_base_side">
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 ${-pi/2}" />
+      <geometry>
+        <mesh filename="package://chimera_ros/meshes/grapple_attachment_base_side.dae" />
+      </geometry>
+    </visual>
+  </link>
+  <joint name="grapple_attachment_base_side_joint" type="fixed">
+    <origin xyz="0.1 0.0 0.008" rpy="0 0 0" />
+    <axis xyz="1 0 0" />
+    <parent link="front_rail" />
+    <child link="grapple_attachment_base_side" />
+  </joint>
+
+</robot>

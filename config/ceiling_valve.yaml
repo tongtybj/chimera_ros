@@ -1,0 +1,36 @@
+spot:
+  joint_state_publisher_gui: # lookup
+    zeros:
+      front_left_hip_y: 0.5
+      front_left_knee: -0.68
+      front_right_hip_y: 0.5
+      front_right_knee: -0.68
+      rear_left_hip_y: 1.6
+      rear_left_knee: -1.96
+      rear_right_hip_y: 1.6
+      rear_right_knee: -1.96
+  body_tf_publisher:
+    z: 0.6
+    pitch: -0.4
+
+dragon:
+  joint_state_publisher_gui: # lookup
+    zeros:
+      joint1_pitch: 0.11
+      joint1_yaw: 0
+      joint2_pitch: -1.57
+      joint2_yaw: 0
+      gimbal2_pitch: 0.1
+      gimbal3_pitch: 0
+
+grapple_attachment_tf_publisher:
+  x: 1.4
+  y: -0.4
+  z: -0.1
+  yaw: 0.8
+  pitch: 0.2
+  roll: 0.3
+
+valve:
+  valve_tf_publisher:
+    x: 2.0

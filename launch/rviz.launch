@@ -1,0 +1,69 @@
+<launch>
+
+  <arg name="valve_pitch_angle" default="90" doc="the diction of the valve normal axis in gazebo model" />
+  <arg name="valve" default="wall"  />
+
+  <rosparam file="$(find chimera_ros)/config/$(arg valve)_valve.yaml" command="load" />
+
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find chimera_ros)/config/chimera.rviz" respawn="true" />
+
+  <node name="rqt_reconfigure" pkg="rqt_reconfigure" type="rqt_reconfigure" />
+
+  <group ns="spot">
+    <node name="frone_camera" pkg="tf" type="static_transform_publisher" args="0.2 0.0 0.0 0 0 0 spot/front_rail spot/frone_camera 20" />
+    <param name="robot_description" command="$(find xacro)/xacro.py
+                                             $(find chimera_ros)/urdf/spot.urdf.xacro
+                                             --inorder"
+                                             />
+    <param name="use_gui" value="True"/>
+    <node name="joint_state_publisher_gui" pkg="joint_state_publisher" type="joint_state_publisher" />
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" >
+      <param name="tf_prefix" value="spot" />
+    </node>
+
+    <!-- use daikin_plant instead of dynamic_tf_publisher, beauase foreget to install in CMakeLists.txt, see https://github.com/jsk-ros-pkg/jsk_common/pull/1690  -->
+    <node name="body_tf_publisher" pkg="chimera_ros" type="tf_reconfigure_publisher.py" output="screen" >
+      <rosparam>
+        frame_id: spot/body
+        parent_frame_id: world
+      </rosparam>
+    </node>
+  </group>
+
+  <group ns="dragon">
+    <param name="robot_description" command="$(find xacro)/xacro.py
+                                             $(find chimera_ros)/urdf/dragon.urdf.xacro
+                                             --inorder"
+                                             />
+    <param name="use_gui" value="True"/>
+    <node name="joint_state_publisher_gui" pkg="joint_state_publisher" type="joint_state_publisher" />
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" >
+      <param name="tf_prefix" value="dragon" />
+    </node>
+  </group>
+
+  <node name="grapple_attachment_tf_publisher" pkg="chimera_ros" type="tf_reconfigure_publisher.py" output="screen">
+    <rosparam>
+      frame_id: dragon/grapple_attachment_arm_side
+      parent_frame_id: spot/grapple_attachment_base_side
+    </rosparam>
+  </node>
+
+  <!-- valve -->
+  <group ns="valve">
+    <param name="robot_description" command="$(find xacro)/xacro.py $(find dragon_valve)/urdf/valve.urdf valve_pitch_angle:=$(arg valve_pitch_angle) no_collision:=true" />
+    <node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui"  />
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" >
+      <param name="tf_prefix" value="valve" />
+    </node>
+    <node name="valve_tf_publisher" pkg="chimera_ros" type="tf_reconfigure_publisher.py" output="screen">
+      <rosparam>
+        frame_id: valve/main_pipe
+        parent_frame_id: world
+        yaw: 3.1415926
+      </rosparam>
+    </node>
+  </group>
+
+
+</launch>
