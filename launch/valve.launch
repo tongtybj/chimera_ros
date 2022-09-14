@@ -21,7 +21,7 @@
       <param name="tf_prefix" value="spot" />
     </node>
 
-    <node name="body_tf_publisher" pkg="chimera_ros" type="tf_reconfigure_publisher.py" output="screen" >
+    <node name="body_tf_publisher" pkg="aerial_robot_model" type="tf_reconfigure_publisher.py" output="screen" >
       <rosparam>
         frame_id: spot/body
         parent_frame_id: world
@@ -42,7 +42,7 @@
 
   </group>
 
-  <node name="grapple_attachment_tf_publisher" pkg="chimera_ros" type="tf_reconfigure_publisher.py" output="screen">
+  <node name="grapple_attachment_tf_publisher" pkg="aerial_robot_model" type="tf_reconfigure_publisher.py" output="screen">
     <rosparam>
       frame_id: arm/link1
       parent_frame_id: spot/base_fixture
@@ -56,7 +56,7 @@
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" >
       <param name="tf_prefix" value="valve" />
     </node>
-    <node name="valve_tf_publisher" pkg="chimera_ros" type="tf_reconfigure_publisher.py" output="screen">
+    <node name="valve_tf_publisher" pkg="aerial_robot_model" type="tf_reconfigure_publisher.py" output="screen">
       <rosparam>
         frame_id: valve/main_pipe
         parent_frame_id: world
