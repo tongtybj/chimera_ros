@@ -5,7 +5,7 @@
 
   <rosparam file="$(find chimera_ros)/config/$(arg valve)_valve.yaml" command="load" />
 
-  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find chimera_ros)/config/chimera.rviz" respawn="true" />
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find chimera_ros)/config/valve.rviz" respawn="true" />
 
   <node name="rqt_reconfigure" pkg="rqt_reconfigure" type="rqt_reconfigure" />
 
@@ -21,7 +21,6 @@
       <param name="tf_prefix" value="spot" />
     </node>
 
-    <!-- use daikin_plant instead of dynamic_tf_publisher, beauase foreget to install in CMakeLists.txt, see https://github.com/jsk-ros-pkg/jsk_common/pull/1690  -->
     <node name="body_tf_publisher" pkg="chimera_ros" type="tf_reconfigure_publisher.py" output="screen" >
       <rosparam>
         frame_id: spot/body
@@ -30,22 +29,23 @@
     </node>
   </group>
 
-  <group ns="dragon">
+  <group ns="arm">
     <param name="robot_description" command="$(find xacro)/xacro.py
-                                             $(find chimera_ros)/urdf/dragon.urdf.xacro
+                                             $(find free_arm_robot)/robots/quad.urdf.xacro
                                              --inorder"
                                              />
     <param name="use_gui" value="True"/>
     <node name="joint_state_publisher_gui" pkg="joint_state_publisher" type="joint_state_publisher" />
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" >
-      <param name="tf_prefix" value="dragon" />
+      <param name="tf_prefix" value="arm" />
     </node>
+
   </group>
 
   <node name="grapple_attachment_tf_publisher" pkg="chimera_ros" type="tf_reconfigure_publisher.py" output="screen">
     <rosparam>
-      frame_id: dragon/grapple_attachment_arm_side
-      parent_frame_id: spot/grapple_attachment_base_side
+      frame_id: arm/link1
+      parent_frame_id: spot/base_fixture
     </rosparam>
   </node>
 

@@ -7,7 +7,10 @@ Panels:
         - /Global Options1
         - /Status1
         - /RobotModel1
+        - /RobotModel2
+        - /RobotModel2/Status1
         - /TF1
+        - /RobotModel3
       Splitter Ratio: 0.5
     Tree Height: 728
   - Class: rviz/Selection
@@ -40,7 +43,7 @@ Visualization Manager:
       Cell Size: 1
       Class: rviz/Grid
       Color: 160; 160; 164
-      Enabled: false
+      Enabled: true
       Line Style:
         Line Width: 0.029999999329447746
         Value: Lines
@@ -53,7 +56,7 @@ Visualization Manager:
       Plane: XY
       Plane Cell Count: 10
       Reference Frame: <Fixed Frame>
-      Value: false
+      Value: true
     - Alpha: 1
       Class: rviz/RobotModel
       Collision Enabled: false
@@ -78,26 +81,6 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        edf2_left:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        edf2_right:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        edf3_left:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        edf3_right:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        fc:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
         front_left_hip:
           Alpha: 1
           Show Axes: false
@@ -132,6 +115,76 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
+        rear_left_hip:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        rear_left_lower_leg:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        rear_left_upper_leg:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        rear_rail:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        rear_right_hip:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        rear_right_lower_leg:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        rear_right_upper_leg:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+      Name: RobotModel
+      Robot Description: spot/robot_description
+      TF Prefix: spot
+      Update Interval: 0
+      Value: true
+      Visual Enabled: true
+    - Alpha: 1
+      Class: rviz/RobotModel
+      Collision Enabled: false
+      Enabled: true
+      Links:
+        All Links Enabled: true
+        Expand Joint Details: false
+        Expand Link Details: false
+        Expand Tree: false
+        Link Tree Style: Links in Alphabetic Order
+        edf2_left:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        edf2_right:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        edf3_left:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        edf3_right:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        fc:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
         gimbal1_pitch_module:
           Alpha: 1
           Show Axes: false
@@ -417,40 +470,6 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        rear_left_hip:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        rear_left_lower_leg:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        rear_left_upper_leg:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        rear_rail:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        rear_right_hip:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        rear_right_lower_leg:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        rear_right_upper_leg:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
         thrust1:
           Alpha: 1
           Show Axes: false
@@ -468,8 +487,8 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
       Name: RobotModel
-      Robot Description: chimera/robot_description
-      TF Prefix: chimera
+      Robot Description: arm/robot_description
+      TF Prefix: arm
       Update Interval: 0
       Value: true
       Visual Enabled: true
@@ -487,11 +506,67 @@ Visualization Manager:
         {}
       Update Interval: 0
       Value: false
+    - Alpha: 1
+      Class: rviz/RobotModel
+      Collision Enabled: false
+      Enabled: true
+      Links:
+        All Links Enabled: true
+        Expand Joint Details: false
+        Expand Link Details: false
+        Expand Tree: false
+        Link Tree Style: Links in Alphabetic Order
+        handle:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        main_pipe:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        stem:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        sub_pipe1:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        sub_pipe1_mount:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        sub_pipe2:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        sub_pipe2_mount:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        valve:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+      Name: RobotModel
+      Robot Description: valve/robot_description
+      TF Prefix: valve
+      Update Interval: 0
+      Value: true
+      Visual Enabled: true
   Enabled: true
   Global Options:
     Background Color: 255; 255; 255
     Default Light: true
-    Fixed Frame: chimera/base_link
+    Fixed Frame: world
     Frame Rate: 30
   Name: root
   Tools:
@@ -515,25 +590,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 2.0668184757232666
+      Distance: 3.1440892219543457
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 0.18665537238121033
-        Y: -0.21801050007343292
-        Z: 0.10158292949199677
+        X: 0.26375341415405273
+        Y: -0.3970947265625
+        Z: 0.22877712547779083
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.3953980803489685
+      Pitch: 0.4003978371620178
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 0.9354029893875122
+      Yaw: 1.2104027271270752
     Saved: ~
 Window Geometry:
   Displays:

@@ -1,31 +1,47 @@
 spot:
   joint_state_publisher_gui: # lookup
     zeros:
-      front_left_hip_y: 0.5
-      front_left_knee: -1.22
-      front_right_hip_y: 0.5
-      front_right_knee: -1.22
-      rear_left_hip_y: 0.5
-      rear_left_knee: -1.22
-      rear_right_hip_y: 0.5
-      rear_right_knee: -1.22
-  body_tf_publisher:
-    z: 0.6
+      front_left_hip_y: 0.6
+      front_left_knee: -0.4
+      front_right_hip_y: 0.6
+      front_right_knee: -0.4
 
-dragon:
+      rear_left_hip_y: 1.45
+      rear_left_knee: -2.00
+      rear_right_hip_y: 1.45
+      rear_right_knee: -2.00
+  body_tf_publisher:
+    z: 0.55
+    pitch: -0.5
+
+arm:
   joint_state_publisher_gui: # lookup
     zeros:
-      joint1_pitch: 0.45
-      joint1_yaw: 0
-      joint2_pitch: 1.12
-      joint2_yaw: 0
-      gimbal2_pitch: 0.97
-      gimbal3_pitch: -0.12
+      joint1_pitch: 1.25
+      joint1_yaw: -0.23
+      joint2_pitch: 0.92
+      joint2_yaw: 0.44
+      joint3_pitch: -0.13
+      joint3_yaw: -0.3
+
+      gimbal1_roll: -0.07
+      gimbal1_pitch: 2.05
+      gimbal2_roll: -0.28
+      gimbal2_pitch: 0.71
+      gimbal3_roll: -0.09
+      gimbal3_pitch: 0
+      gimbal4_roll: 0.18
+      gimbal4_pitch: 0
+
+
+      hand2_rotor_left_suction_joint: 1.4
+      hand2_palm_finger1_middle_joint: 0.73
+      hand2_palm_finger1_tip_joint: 1.14
 
 grapple_attachment_tf_publisher:
-  z: -0.004
-  pitch: -1.5708
-
+  z: 0.224
+  roll: 3.1415
+  pitch: 1.5708
 
 valve:
   valve_tf_publisher:

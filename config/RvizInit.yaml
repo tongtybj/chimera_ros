@@ -1,0 +1,30 @@
+zeros:
+  joint1_pitch: 1.0
+  joint1_yaw: -0.23
+  joint2_pitch: 1.04
+  joint2_yaw: 1.08
+  joint3_pitch: -0.6
+  joint3_yaw: -0.7
+
+  gimbal1_roll: 0
+  gimbal1_pitch: 1.7
+  gimbal2_roll: -0.1
+  gimbal2_pitch: 0.54
+  gimbal3_roll: -0.54
+  gimbal3_pitch: 0
+  gimbal4_roll: 0.81
+  gimbal4_pitch: 0
+
+
+  hand2_rotor_left_suction_joint: 1.4
+  hand2_palm_finger1_middle_joint: 0.24
+  hand2_palm_finger1_tip_joint: 0.56
+
+  front_left_hip_x: 0.1
+  front_left_hip_y: 0.7
+  front_right_hip_x: -0.1
+  front_right_hip_y: 0.7
+  rear_left_hip_x: 0.1
+  rear_left_hip_y: 0.7
+  rear_right_hip_y: 0.7
+  rear_right_hip_x: -0.1
