@@ -1,0 +1,17 @@
+# aerial robot 
+- git:
+    local-name: aerial_robot
+    uri: https://github.com/tongtybj/aerial_robot.git
+    version: develop/free_arm_robot/model
+
+# spot
+- git:
+    local-name: spot_ros
+    uri: https://github.com/clearpathrobotics/spot_ros.git
+    version: master
+
+# aerial robot demo for valve
+- git:
+    local-name: aerial_robot_demo
+    uri: https://github.com/tongtybj/aerial_robot_demo
+    version: dragon/valve
