@@ -14,6 +14,8 @@ wstool init src
 wstool set -u -t src chimera_ros https://github.com/tongtybj/chimera_ros.git --git
 wstool merge -t src src/chimera_ros/chimera.rosinstall
 wstool update -t src
+wstool merge -t src src/aerial_robot/aerial_robot_${ROS_DISTRO}.rosinstall
+wstool update -t src
 rosdep install -y -r --from-paths src --ignore-src --rosdistro $ROS_DISTRO
 catkin build
 ```
